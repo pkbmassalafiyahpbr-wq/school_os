@@ -55,7 +55,7 @@ export default function LoginPage() {
         </div>
         <div className="relative flex flex-col justify-center px-16 text-white">
           <div className="space-y-6">
-            <img src="/logo.svg" alt="" className="h-16 w-16 brightness-0 invert" />
+            <img src="/logo.svg" alt="" className="h-16 w-16" />
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tight">School OS</h1>
               <p className="text-xl text-blue-200">SDN 1 Siliasih</p>
@@ -79,7 +79,7 @@ export default function LoginPage() {
             </div>
           </div>
           <div className="absolute bottom-12 left-16 text-sm text-blue-300/60">
-            © 2025 SDN 1 Siliasih
+            © 2026 SDN 1 Siliasih
           </div>
         </div>
       </div>
