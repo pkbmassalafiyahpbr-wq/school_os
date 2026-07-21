@@ -10,23 +10,27 @@ let db: Database.Database | null = null
 export function getDatabase(): Database.Database {
   if (db) return db
 
-  const dir = path.dirname(DB_PATH)
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+  try {
+    const dir = path.dirname(DB_PATH)
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
 
-  const exists = fs.existsSync(DB_PATH)
+    const exists = fs.existsSync(DB_PATH)
+    db = new Database(DB_PATH)
+    db.pragma('journal_mode = DELETE')
+    db.pragma('foreign_keys = ON')
 
-  db = new Database(DB_PATH)
-  db.pragma('journal_mode = WAL')
-  db.pragma('foreign_keys = ON')
+    if (!exists || isVercel) {
+      const schemaPath = path.join(process.cwd(), 'database', 'schema.sql')
+      const schema = fs.readFileSync(schemaPath, 'utf-8')
+      db.exec(schema)
+      seedData()
+    }
 
-  if (!exists || isVercel) {
-    const schemaPath = path.join(process.cwd(), 'database', 'schema.sql')
-    const schema = fs.readFileSync(schemaPath, 'utf-8')
-    db.exec(schema)
-    seedData()
+    return db
+  } catch (err: any) {
+    console.error('[DB] Init error:', err?.message || err)
+    throw err
   }
-
-  return db
 }
 
 export function seedData() {

@@ -45,6 +45,7 @@ yarn-error.log*
 # logs
 stderr.txt
 stdout.txt
+*.csv
 
 # docs
 answer.md
