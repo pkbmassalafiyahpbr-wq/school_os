@@ -55,9 +55,7 @@ export default function LoginPage() {
         </div>
         <div className="relative flex flex-col justify-center px-16 text-white">
           <div className="space-y-6">
-            <div className="h-20 w-20 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center shadow-2xl">
-              <img src="/logo.svg" alt="" className="h-10 w-10 brightness-0 invert" />
-            </div>
+            <img src="/logo.svg" alt="" className="h-16 w-16 brightness-0 invert" />
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tight">School OS</h1>
               <p className="text-xl text-blue-200">SDN 1 Siliasih</p>
@@ -91,9 +89,7 @@ export default function LoginPage() {
         <div className="w-full max-w-sm space-y-8">
           {/* Mobile Logo */}
           <div className="lg:hidden text-center">
-            <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <img src="/logo.svg" alt="School OS" className="h-7 w-7 brightness-0 invert" />
-            </div>
+            <img src="/logo.svg" alt="School OS" className="h-12 w-12 mx-auto mb-4" />
             <h1 className="text-2xl font-bold">School OS</h1>
             <p className="text-sm text-gray-500 mt-1">SDN 1 Siliasih</p>
           </div>
